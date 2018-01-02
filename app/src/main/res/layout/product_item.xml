@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.github.xrodrigo1982x.myapplication.model.Product" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/_0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias=".1"
+            app:layout_constraintEnd_toStartOf="@id/name"
+             />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{product.name, default=name}"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias=".7"
+            app:layout_constraintStart_toEndOf="@id/guide"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/price(product.price), default=00.00}"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide"
+             />
+
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:numStars="5"
+            android:rating="@{product.rating, default=3.5}"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:stepSize=".5"
+            app:layout_constraintTop_toBottomOf="@id/price"
+            app:layout_constraintStart_toEndOf="@id/guide"
+            app:layout_constraintEnd_toEndOf="parent"
+             />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>

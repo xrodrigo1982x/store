@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="product"
+            type="com.github.xrodrigo1982x.myapplication.model.Product"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.github.xrodrigo1982x.myapplication.activity.ProductActivity"
+        android:padding="8dp"
+        >
+
+        <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/guide"
+            app:layout_constraintGuide_begin="200dp"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H,1:1"
+            android:src="@drawable/_0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guide"
+            android:id="@+id/image"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:text="@{product.name}"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            app:layout_constraintLeft_toRightOf="@id/image"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/code"
+            android:text="@{product.code}"
+            android:textSize="7dp"
+            android:textColor="#999"
+            app:layout_constraintLeft_toRightOf="@id/image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/price"
+            android:text="@{@string/price(product.price)}"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@id/code"
+            android:layout_marginTop="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <RatingBar
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/rating"
+            android:numStars="5"
+            android:rating="@{product.rating}"
+            android:max="5"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+            app:layout_constraintTop_toBottomOf="@id/price"
+            app:layout_constraintLeft_toRightOf="@id/image"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="30dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comprar"
+            app:layout_constraintLeft_toRightOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@color/colorAccent"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/description"
+            android:text="@{product.description}"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            android:layout_marginTop="5dp"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
